@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DenemeProje.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Ürün Anasayfa</h2>
+
+<p>
+    @Html.ActionLink("Ürün Ekle", "ProductAdd")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ürün Adı
+        </th>
+        <th>
+            Birim Başına Miktar
+        </th>
+        <th>
+            Birim Fiyat
+        </th>
+        <th>
+            Stok
+        </th>
+        <th>
+            Kategori
+        </th>
+        <th>
+            Tedarikçi Firma
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "ProductUpdate", new { id = item.ProductID }) |
+                @Html.ActionLink("Sil", "ProductDelete", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+
+</table>

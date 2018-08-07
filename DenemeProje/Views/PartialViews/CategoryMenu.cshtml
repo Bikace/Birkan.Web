@@ -1,0 +1,21 @@
+﻿@model List<DenemeProje.Models.Category>
+
+@{
+    int i = 0;
+}
+<div class="title_box">Categories</div>
+<ul class="left_menu">
+    @foreach (var item in Model)
+    {
+        if (i % 2 == 0)
+        {
+            <li class="odd"><a href="/Product/ProductByCategory/@item.CategoryID">@item.CategoryName</a></li>
+        }
+        else
+        {
+            <li class="even"><a href="/Product/ProductByCategory/@item.CategoryID">@item.CategoryName</a></li>
+        }
+        i++;
+    }
+
+</ul>

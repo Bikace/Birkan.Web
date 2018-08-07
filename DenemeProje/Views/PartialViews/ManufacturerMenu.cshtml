@@ -1,0 +1,21 @@
+﻿
+@model List<DenemeProje.Models.Supplier>
+
+@{
+    int i = 0;
+}
+<div class="title_box">Manufacturers</div>
+<ul class="left_menu">
+    @foreach (var item in Model)
+    {
+        if (i % 2 == 0)
+        {
+            <li class="odd"><a href="/Product/ProductBySuppliers/@item.SupplierID">@item.CompanyName</a></li>
+        }
+        else
+        {
+            <li class="even"><a href="/Product/ProductBySuppliers/@item.SupplierID">@item.CompanyName</a></li>
+        }
+        i++;
+    }
+</ul>

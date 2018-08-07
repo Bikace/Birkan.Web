@@ -1,0 +1,23 @@
+﻿
+@model List<DenemeProje.Models.Product>
+@{
+    ViewBag.Title = "ProductsBySupplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="center_title_bar">Selected Supplier Products</div>
+
+@foreach (var item in Model)
+{
+    <div class="prod_box">
+        <div class="top_prod_box"></div>
+        <div class="center_prod_box">
+            <div class="product_title"><a href="details.html">@item.ProductName</a></div>
+            <div class="product_img"><a href="details.html"><img src="~/Content/images/laptop.gif" alt="" border="0" /></a></div>
+            <div class="prod_price"><span class="price">@($"{item.UnitPrice:c}")</span></div>
+        </div>
+        <div class="bottom_prod_box"></div>
+        <div class="prod_details_tab"> <a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img src="~/Content/images/cart.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img src="images/favs.gif" alt="" border="0" class="left_bt" /></a> <a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img src="images/favorites.gif" alt="" border="0" class="left_bt" /></a> <a href="/Product/Details/@item.ProductID" class="prod_details">details</a> </div>
+    </div>
+}
+
